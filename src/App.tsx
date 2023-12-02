@@ -61,6 +61,19 @@ export default function App() {
       ]
     },
     {
+      path: '/',
+      element: <LayoutAdmin />,
+      errorElement: <NotFound />,
+      children: [
+        {
+          index: true, element:
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+        },
+      ]
+    },
+    {
       path: 'login',
       element: <LoginPage />
     },
@@ -68,19 +81,6 @@ export default function App() {
       path: 'register',
       element: <RegisterPage />
     },
-    // {
-    //   path: 'admin',
-    //   element: <AdminPage />,
-    //   children: [
-
-    //     { index: true, element: <DashBoard /> },
-
-    //     {
-    //       path: "manage-users",
-    //       element: <ManageUser />,
-    //     },
-    //   ]
-    // }
   ]);
   return (
     <>
