@@ -45,8 +45,8 @@ const changePassword = (currentpassword: string, newpassword: string) => {
     return axios.post(`/auth/change_password`, { currentpassword, newpassword });
 }
 
-const loginGoogle = () => {
-    return axios.get(`/google`);
+const loginGoogle = (data: string) => {
+    return axios.post(`/google`, data);
 }
 
 export {

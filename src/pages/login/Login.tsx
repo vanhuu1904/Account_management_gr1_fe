@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../services/api";
+import { loginGoogle, loginUser } from "../../services/api";
 import { doLoginAction } from "../../redux/account/accountSlice";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 
@@ -52,9 +52,10 @@ const LoginPage = () => {
   const handleLogin = async (credentialResponse: any) => {
     // var obj = jwtDecode(credentialResponse.credential);
     console.log("check credential: ", credentialResponse);
-    const res = await axios.post('http://localhost:8000/google', {
-      token: credentialResponse.credential
-    });
+    // const res = await axios.post('http://localhost:8000/google', {
+    //   token: credentialResponse.credential
+    // });
+    const res = await loginGoogle(credentialResponse.credential)
     const data = res.data.data;
 
     if (data) {
