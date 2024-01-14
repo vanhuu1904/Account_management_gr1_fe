@@ -52,19 +52,22 @@ const LoginPage = () => {
   const handleLogin = async (credentialResponse: any) => {
     // var obj = jwtDecode(credentialResponse.credential);
     console.log("check credential: ", credentialResponse);
-    // const res = await axios.post('http://localhost:8000/google', {
-    //   token: credentialResponse.credential
-    // });
-    const res = await loginGoogle(credentialResponse.credential)
-    const data = res.data.data;
-
-    if (data) {
-      localStorage.setItem('access_token', data.access_token);
-      dispatch(doLoginAction(data?.createdUser || data?.userExists));
-      navigate('/admin');
+    const res = await axios.post('https://vanhuu-account-management-gr1.onrender.com/google', {
+      token: credentialResponse.credential
+    });
+    // const res = await loginGoogle(credentialResponse.credential)
+    console.log(">>> check res: ", res);
+    if (res) {
+      const data = res?.data?.data;
+      if (data) {
+        localStorage.setItem('access_token', data.access_token);
+        dispatch(doLoginAction(data?.createdUser || data?.userExists));
+        navigate('/admin');
+      }
+      console.log(">>> check res : ", data);
+      // setAuthData(data);
     }
-    console.log(">>> check res : ", data);
-    // setAuthData(data);
+
   }
   const handleLoginWithGoogle = async () => {
     window.open('http://localhost:8000/google')

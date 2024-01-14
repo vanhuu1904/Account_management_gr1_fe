@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000";
+const baseUrl = "https://vanhuu-account-management-gr1.onrender.com";
 
 const instance = axios.create({
     baseURL: baseUrl,
