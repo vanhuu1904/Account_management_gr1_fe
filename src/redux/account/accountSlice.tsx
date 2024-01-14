@@ -7,7 +7,8 @@ const initialState = {
     user: {
         _id: "",
         username: "",
-        fullname: ""
+        fullname: "",
+        email: "",
     },
 };
 
@@ -42,7 +43,8 @@ export const accountSlice = createSlice({
             state.user = {
                 _id: "",
                 username: "",
-                fullname: ""
+                fullname: "",
+                email: "",
             }
         }
     },

@@ -1,7 +1,7 @@
 import axios from "../utils/axios-customize";
 
 
-const login = (username: string, password: string) => {
+const loginUser = (username: string, password: string) => {
     return axios.post('auth/login', { username, password });
 }
 
@@ -29,6 +29,10 @@ const createANewUser = (username: string, password: string, fullname: string, st
     return axios.post('/users', { username, password, fullname, studentcode, address })
 }
 
+const createUser = (data: any) => {
+    return axios.post('/users/bulk-create', data);
+}
+
 const updateAUser = (_id: string, fullname: string, studentcode: number, address: string) => {
     return axios.patch("/users", { _id, fullname, studentcode, address })
 }
@@ -41,8 +45,12 @@ const changePassword = (currentpassword: string, newpassword: string) => {
     return axios.post(`/auth/change_password`, { currentpassword, newpassword });
 }
 
+const loginGoogle = () => {
+    return axios.get(`/google`);
+}
+
 export {
-    login,
+    loginUser,
     register,
     fetchAccount,
     logout,
@@ -51,5 +59,5 @@ export {
     updateAUser,
     deleteAUser,
     getAUser,
-    changePassword
+    changePassword, loginGoogle, createUser
 };

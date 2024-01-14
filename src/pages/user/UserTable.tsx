@@ -7,9 +7,15 @@ import { FaPlus } from "react-icons/fa";
 import { IoReloadOutline } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
+import {
+    CloudUploadOutlined,
+    ExportOutlined,
+    PlusOutlined,
+} from "@ant-design/icons";
 import UserViewDetail from './UserViewDetail';
 import UserModelCreate from './UserModalCreate';
 import UserModalUpdate from './UserModalUpdate';
+import UserImport from './data/UserImport'
 // https://stackblitz.com/run?file=demo.tsx
 const UserTable = () => {
     const [listUser, setListUser] = useState([]);
@@ -29,6 +35,8 @@ const UserTable = () => {
     const [openModalUpdate, setOpenModalUpdate] = useState(false);
     const [dataUpdate, setDataUpdate] = useState();
 
+    // import excel
+    const [openModalImport, setOpenModalImport] = useState(false);
     useEffect(() => {
         fetchUsers();
     }, [current, pageSize, filter, sortQuery]);
@@ -49,6 +57,45 @@ const UserTable = () => {
         }
         setIsLoading(false);
     }
+    const renderHeader = () => {
+        return (
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span>Table List User</span>
+                <span style={{ display: "flex", gap: 15 }}>
+                    <Button
+                        icon={<ExportOutlined />}
+                        type="primary"
+                    // onClick={() => handleExportData()}
+                    >
+                        Export
+                    </Button>
+                    <Button
+                        icon={<CloudUploadOutlined />}
+                        type="primary"
+                        onClick={() => setOpenModalImport(true)}
+                    >
+                        Import
+                    </Button>
+                    <Button
+                        icon={<PlusOutlined />}
+                        type="primary"
+                        onClick={() => setOpenModalCreate(true)}
+                    >
+                        Thêm mới
+                    </Button>
+                    <Button
+                        type="ghost"
+                        onClick={() => {
+                            setFilter("");
+                            setSortQuery("");
+                        }}
+                    >
+                        <IoReloadOutline />
+                    </Button>
+                </span>
+            </div>
+        );
+    };
     const handleSearch = (query: string) => {
         setFilter(query);
     }
@@ -96,6 +143,7 @@ const UserTable = () => {
             dataIndex: 'address',
             sorter: true
         },
+        { title: 'Type', dataIndex: 'type' },
         {
             title: 'Action',
             render: (text: any, record: any, index: any) => {
@@ -148,7 +196,7 @@ const UserTable = () => {
                         setFilter={setFilter}
                     />
                 </Col>
-                <Col span={12}>
+                {/* <Col span={12}>
                     <h3 style={{ marginLeft: 10 }}>Table User</h3>
                 </Col>
                 <Col span={12} >
@@ -169,10 +217,11 @@ const UserTable = () => {
                         <IoReloadOutline />
                     </Button>
 
-                </Col>
+                </Col> */}
                 <Col span={24}>
                     <Table
                         className='def'
+                        title={renderHeader}
                         columns={columns}
                         loading={isLoading}
                         dataSource={listUser}
@@ -207,6 +256,11 @@ const UserTable = () => {
                 fetchUsers={fetchUsers}
                 dataUpdate={dataUpdate}
                 setDataUpdate={setDataUpdate}
+            />
+            <UserImport
+                openModalImport={openModalImport}
+                setOpenModalImport={setOpenModalImport}
+                fetchUsers={fetchUsers}
             />
         </>
     )

@@ -50,9 +50,9 @@ export default function App() {
       children: [
         {
           index: true, element:
-            <ProtectedRoute>
-              <AdminPage />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <AdminPage />
+          // </ProtectedRoute>
         },
         {
           path: 'user',
@@ -88,7 +88,6 @@ export default function App() {
         <RouterProvider router={router} />
         : <Loading />
       }
-
     </>
   )
 }
