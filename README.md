@@ -24,7 +24,7 @@ Các bước cần làm để chạy dự án
 
    Đăng nhập bằng tài khoản local, google
    
-   Thêm sửa xóa tài khoản
+   Thêm sửa xóa tài khoản, thêm tài khoản bằng file excel
 
 Trang login
 ![Alt text](./screenshots/tranglogin.png)
