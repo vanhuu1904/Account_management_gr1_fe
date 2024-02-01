@@ -1,9 +1,14 @@
 **_ Account management | Văn Hữu _**
 
 React 18
+
 React Router 6
+
 Redux Tookit
+
 Vite 4
+
+NestJS
 
 Các bước cần làm để chạy dự án
 
