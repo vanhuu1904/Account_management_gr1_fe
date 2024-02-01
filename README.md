@@ -23,11 +23,11 @@ Các bước cần làm để chạy dự án
    Thêm sửa xóa tài khoản
 
 Trang login
-![Alt text]("./screenshots/tranglogin.png")
+![Alt text](./screenshots/tranglogin.png)
 Quản Lý tài khoản
-![Alt text]("./screenshots/quanlytkhoan.png")
+![Alt text](./screenshots/quanlytkhoan.png)
 Tìm kiếm tài khoản
-![Alt text]("./screenshots/timkiemtaikhoan.png")
+![Alt text](./screenshots/timkiemtaikhoan.png)
 Thêm mới tài khoản bằng file excel
-![Alt text]("./screenshots/themmoitaikhoanbangexcel.png")
-![Alt text]("./screenshots/importfile.png")
+![Alt text](./screenshots/themmoitaikhoanbangexcel.png)
+![Alt text](./screenshots/importfile.png)
