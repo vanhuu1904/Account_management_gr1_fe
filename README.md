@@ -16,11 +16,14 @@ Các bước cần làm để chạy dự án
    npm run dev
 4. Truy cập ứng dụng: Mở trình duyệt web và truy cập vào địa chỉ
    http://localhost:3000 để xem ứng dụng của bạn.
+   
    Đồ án 1 Web
    Trang web demo: https://account-management-gr1.vercel.app/login
    
    Chức năng Cơ bản:
+
    Đăng nhập bằng tài khoản local, google
+   
    Thêm sửa xóa tài khoản
 
 Trang login
